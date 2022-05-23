@@ -1,5 +1,4 @@
 
-
 function formatDate(timestamp){
   let date = new Date(timestamp);
   let hours = date.getHours();
@@ -16,7 +15,6 @@ function formatDate(timestamp){
 
 }
 function displayTemperature(response){
-  console.log(response.data);
   let temperatureElement = document.querySelector("#temperature");
   let cityElement = document.querySelector("#city");
   let descriptionElement = document.querySelector("#description");
@@ -24,6 +22,7 @@ function displayTemperature(response){
   let windElement = document.querySelector("#wind");
   let date = document.querySelector("#date");
   let iconElement = document.querySelector("#icon");
+  celsiusTemperature = response.data.main.temp;
   temperatureElement.innerHTML = Math.round(response.data.main.temp);
   cityElement.innerHTML = response.data.name;
   descriptionElement.innerHTML = response.data.weather[0].description;
@@ -32,6 +31,7 @@ function displayTemperature(response){
   date.innerHTML = formatDate(response.data.dt * 1000);
   iconElement.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
   iconElement.setAttribute("alt", response.data.weather[0].description);
+
 } 
 
 function search(city){
@@ -46,9 +46,28 @@ let searchInputElement = document.querySelector("#input-search");
 search(searchInputElement.value);
 }
 
+function displayFahrenheirTemperature(event){
+  event.preventDefault();
+  console.log(celsiusTemperature);
+  let temperatureElement = document.querySelector("#temperature");
+  let fahrenheitTemperature = celsiusTemperature*1.8 +32;
+  temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
+}
+function displayCelsiusTemperature(event){
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#temperature");
+  temperatureElement.innerHTML = Math.round(celsiusTemperature);
+}
 
 
-
-
+let celsiusTemperature = null;
 let form = document.querySelector("#form-search");
 form.addEventListener("submit", handleSearch);
+
+let fahrenheitLink = document.querySelector("#fahrenheit-link");
+fahrenheitLink.addEventListener("click", displayFahrenheirTemperature);
+
+let celsiusLink = document.querySelector("#celsius-link");
+celsiusLink.addEventListener("click", displayCelsiusTemperature);
+
+search("Gijon");
