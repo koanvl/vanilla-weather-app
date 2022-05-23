@@ -12,8 +12,61 @@
   <script src="https://kit.fontawesome.com/01a87deee0.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="src/style.css">
 </head>
-<body>
+<body>  
+  <!--BEGIN BACK-->
+  <div class="back"></div>
+  <!--ENBD BACK-->
   
+  <!--BEGIN WEATHER-APP-WRAP-->
+  <div class="weather-app-wrap">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <!--BEGIN FORM-BOX-->
+          <div class="form-box">
+            <form action="#" id="form-search">
+              <div class="row">
+                <div class="col-9">
+                  <input type="search" placeholder="Enter a city" class="form-control form-control-own" id="input-search">
+                </div>
+                <div class="col-3">
+                  <input type="submit" value="Search" class="btn btn-search" id="btn-search">
+                </div>
+              </div>
+            </form>
+          </div>
+          <!--END FORM-BOX-->
+          <!--BEGIN WEATHER-DESCRIPTION-BOX-->
+          <div class="weather-description-box mt-5">
+            <div class="row">
+              <div class="col-6">
+                <h1>San Francisco</h1>
+                <div class="mt-1 fs-6">Last update: <span id="date">Friday 11:50</span></div>
+                <div class="mt-1 fs-6" id="description">some long description</div>
+              </div>
+              <div class="col-6">
+                <div class="d-flex justify-content-end align-items-center">
+                  <span>
+                    <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="">
+                  </span>
+                  <span>
+                    <div class="temperature">
+                      14° <a href="#">C</a> | <a href="#">F</a> 
+                    </div>
+                    <div class="fs-6 text-end mt-1">Humidity: 2155</div>
+                    <div class="fs-6 text-end mt-1">Wind: 2155</div>
+                  </span>
+                </div>                
+              </div>
+              
+            </div>
+          </div>
+          <!--END WEATHER-DESCRIPTION-BOX-->
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--END WEATHER-APP-WRAP-->
   <script tpe="text/javascript" src="src/main.js"></script>
 </body>
 </html>
