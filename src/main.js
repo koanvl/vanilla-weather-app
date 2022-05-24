@@ -23,7 +23,7 @@ function displayTemperature(response){
   let date = document.querySelector("#date");
   let iconElement = document.querySelector("#icon");
   celsiusTemperature = response.data.main.temp;
-  temperatureElement.innerHTML = Math.round(response.data.main.temp);
+  temperatureElement.innerHTML =`${Math.round(response.data.main.temp)}°`;
   cityElement.innerHTML = response.data.name;
   descriptionElement.innerHTML = response.data.weather[0].description;
   humidityElement.innerHTML = response.data.main.humidity;
@@ -51,12 +51,16 @@ function displayFahrenheirTemperature(event){
   console.log(celsiusTemperature);
   let temperatureElement = document.querySelector("#temperature");
   let fahrenheitTemperature = celsiusTemperature*1.8 +32;
-  temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
+  temperatureElement.innerHTML = `${Math.round(fahrenheitTemperature)}°`;
+  celsiusLink.classList.remove("active");
+  fahrenheitLink.classList.add("active");
 }
 function displayCelsiusTemperature(event){
   event.preventDefault();
   let temperatureElement = document.querySelector("#temperature");
-  temperatureElement.innerHTML = Math.round(celsiusTemperature);
+  temperatureElement.innerHTML = `${Math.round(celsiusTemperature)}°`;
+  celsiusLink.classList.add("active");
+  fahrenheitLink.classList.remove("active");
 }
 
 

@@ -7,11 +7,8 @@ body {
   width: 640px;
   padding: 40px;
   border: 1px solid #ffffff;
-  border-radius: 5px;
-  position: absolute;
-  top: 40px;
-  left: 50%;
-  transform: translateX(-50%);
+  border-radius: 5px;  
+  margin: 40px auto 0 auto;
   color: #ffffff;
   background: linear-gradient(198deg,#00cdec,#00449b) 0 0 no-repeat padding-box;
 }
@@ -68,8 +65,40 @@ body {
 h1 {
   line-height: 54px;
 }
-.temperature {
-  font-size: 36px;
-  text-transform: capitalize;
+.temperature-box {
+  position: relative;
+}
+#temperature {
+  font-size: 62px;
+}
+.switcher {
+  position: absolute;
+  top: 20px;
+  right: -50px;
+}
+.switcher a {
+  text-decoration: none;
+  color: #ffffff;
+  padding: 0 3px 3px 3px;
+  border-bottom: 1px solid transparent;
+  font-size: 20px;
+  transition: 0.5s;
+  
 }
 
+a.active {
+  border-color: #ffffff;
+}
+#description::first-letter {
+  text-transform: uppercase;
+}
+
+#icon {
+  margin-top: -25px;
+}
+
+.bottom-wrap {
+  width: 640px;
+  margin: 15px auto 60px auto;
+  color: #000000;
+}
